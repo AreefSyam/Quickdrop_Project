@@ -52,8 +52,8 @@ Jobs: [(A, 2, 100), (B, 1, 19), (C, 2, 27), (D, 1, 25), (E, 3, 15)]
    - An additional array to keep track of the scheduled jobs (result array).
 
    **B.Time Constraint:** The algorithm should run in polynomial time to ensure it is efficient and practical for real-world applications. The time complexity should ideally be:
-   - \( O(n \log n) \) for sorting the jobs based on profit in descending order.
-   - \( O(n \cdot d) \) for scheduling the jobs, where \( n \) is the number of jobs and \( d \) is the maximum deadline. This includes:
+   - \( O(n log n) \) for sorting the jobs based on profit in descending order.
+   - \( O(n . d) \) for scheduling the jobs, where \( n \) is the number of jobs and \( d \) is the maximum deadline. This includes:
       - Iterating through the sorted jobs.
       - Finding the latest available time slot for each job up to its deadline.
 
