@@ -96,4 +96,4 @@ Class JobScheduler:
         Schedule jobs using scheduleJobs
 
 ## FLowchart
-![Flowchart](image\flowchart.png)
+![Flowchart](image/flowchart.png)
