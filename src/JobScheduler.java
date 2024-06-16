@@ -71,7 +71,7 @@ public class JobScheduler {
     }
 
     public static void main(String[] args) {
-        String filePath = "D:\\CODING UPM\\JAVA\\QUICKDROP_PROJECT\\src\\data\\jobs_dataset.csv"; // Update with the actual path to the CSV file
+        String filePath = "data\\jobs_dataset.csv"; // Update with the actual path to the CSV file
         Job[] jobs = readJobsFromCSV(filePath);
         scheduleJobs(jobs);
     }

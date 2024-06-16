@@ -94,3 +94,6 @@ Class JobScheduler:
         Set filePath to path of CSV file
         Read jobs from CSV using readJobsFromCSV
         Schedule jobs using scheduleJobs
+
+## FLowchart
+src\image\flowchart.png
