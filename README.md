@@ -29,6 +29,21 @@ To develop a scheduling algorithm that efficiently allocates drone delivery jobs
 3. Scheduled Time Slots: The time slots in which the jobs are scheduled.
    - Example: ['A' at Slot 1, 'C' at Slot 2, 'B' at Slot 3]
 
+## Problem Specification:
+1. Data Types: Jobs represented as a list of tuples with (job_id, deadline, profit).
+2. Objective Function: Maximize total profit by selecting jobs that can be completed within their deadlines.
+3. Constraints: Each job must be completed by its deadline; no two jobs can be scheduled at the same time slot.
+
+## Potential Solutions:
+1. Greedy Algorithm
+2. Dynamic Programming
+3. Divide and Conquer
+4. Graph Algorithms
+
+## Sketch (Framework, Flow, Interface):
+1. Framework: Python or Java for implementation.
+2. Flow: Input jobs, sort by profit, schedule based on deadlines.
+3. Interface: Command-line interface or simple graphical interface showing scheduled jobs and total profit.
 
 
 
