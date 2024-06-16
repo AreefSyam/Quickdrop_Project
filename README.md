@@ -64,24 +64,24 @@ Jobs: [(A, 2, 100), (B, 1, 19), (C, 2, 27), (D, 1, 25), (E, 3, 15)]
 ---
 
 ## 3. Specification of an Algorithm
-**Chosen Algorithm:**
+### Comparison with Other Algorithms:**
+**1. Divide and Conquer (DAC):**
+- Strengths: Efficient for certain types of problems, easy to parallelize.
+- Weaknesses: Not suitable for problems requiring global optimization.
+**2. Dynamic Programming (DP):**
+- Strengths: Provides optimal solutions by considering all possible solutions.
+- Weaknesses: High memory and time complexity.
+**3. Greedy Algorithm:**
+- Strengths: Simple to implement, efficient for many problems, provides good approximate solutions.
+- Weaknesses: May not always provide the optimal solution.
+**4. Graph Algorithms:**
+- Strengths: Suitable for network flow and connectivity problems.
+- Weaknesses: Complex implementation for job scheduling problems.
+
+### Chosen Algorithm:
 Greedy Algorithm is selected because it efficiently provides a good solution for the job scheduling problem by focusing on maximizing profit.
 
-**Comparison with Other Algorithms:**
-   **1. Divide and Conquer (DAC):**
-      - Strengths: Efficient for certain types of problems, easy to parallelize.
-      - Weaknesses: Not suitable for problems requiring global optimization.
-   **2. Dynamic Programming (DP):**
-      - Strengths: Provides optimal solutions by considering all possible solutions.
-      - Weaknesses: High memory and time complexity.
-   **3. Greedy Algorithm:**
-      - Strengths: Simple to implement, efficient for many problems, provides good approximate solutions.
-      - Weaknesses: May not always provide the optimal solution.
-   **4. Graph Algorithms:**
-      - Strengths: Suitable for network flow and connectivity problems.
-      - Weaknesses: Complex implementation for job scheduling problems.
-
-**Suitability of Greedy Algorithm:**
+### Suitability of Greedy Algorithm:
 The greedy algorithm is chosen for its simplicity and efficiency, making it a suitable choice for the job scheduling problem, where the primary goal is to maximize profit by selecting jobs based on their profitability.
 
 ---
@@ -153,9 +153,9 @@ The recurrence relation is defined by the job selection and slot assignment proc
 
 ## 6. Analysis of an Algorithm
 ### Growth of Function:
-- **Best Case:** \( O(n \log n) \) for sorting, where \( n \) is the number of jobs.
-- **Average Case:** \( O(n \cdot d) \) where \( d \) is the maximum deadline.
-- **Worst Case:** \( O(n \cdot d) \).
+- **Best Case:** \( O(n log n) \) for sorting, where \( n \) is the number of jobs.
+- **Average Case:** \( O(n . d) \) where \( d \) is the maximum deadline.
+- **Worst Case:** \( O(n . d) \).
 
 
 
