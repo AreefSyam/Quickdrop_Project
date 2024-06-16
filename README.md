@@ -82,6 +82,8 @@ Jobs: [(A, 2, 100), (B, 1, 19), (C, 2, 27), (D, 1, 25), (E, 3, 15)]
 - Strengths: Suitable for network flow and connectivity problems.
 - Weaknesses: Complex implementation for job scheduling problems.
 
+---
+
 ### Chosen Algorithm:
 Greedy Algorithm is selected because it efficiently provides a good solution for the job scheduling problem by focusing on maximizing profit.
 
