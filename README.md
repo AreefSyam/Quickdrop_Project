@@ -1,4 +1,4 @@
-# quickdrop-project
+# Quickdrop-project
 Online portfolio for the QuickDrop drone delivery service project
 
 ## Group Name:
