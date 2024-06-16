@@ -65,15 +65,19 @@ Jobs: [(A, 2, 100), (B, 1, 19), (C, 2, 27), (D, 1, 25), (E, 3, 15)]
 
 ## 3. Specification of an Algorithm
 ### Comparison with Other Algorithms:**
+
 **1. Divide and Conquer (DAC):**
 - Strengths: Efficient for certain types of problems, easy to parallelize.
 - Weaknesses: Not suitable for problems requiring global optimization.
+
 **2. Dynamic Programming (DP):**
 - Strengths: Provides optimal solutions by considering all possible solutions.
 - Weaknesses: High memory and time complexity.
+
 **3. Greedy Algorithm:**
 - Strengths: Simple to implement, efficient for many problems, provides good approximate solutions.
 - Weaknesses: May not always provide the optimal solution.
+
 **4. Graph Algorithms:**
 - Strengths: Suitable for network flow and connectivity problems.
 - Weaknesses: Complex implementation for job scheduling problems.
