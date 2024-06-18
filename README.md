@@ -33,10 +33,14 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 
 ## 2.0 Development of a Model
 ### 2.1 Data Types:
-- **Jobs:** Represented as an array of Job objects, each containing (jobId, deadline, profit). For example:
-  - Job 1: ('A001', 2, 100)
-  - Job 2: ('B002', 1, 50)
-  - Job 3: ('C003', 2, 150)
+- Jobs: Represented as an array of Job objects, each containing (jobId, deadline, profit). For example:
+    - jobId (String)
+    - deadline (int)
+    - profit (int)
+ - Example:
+   - Job 1: ('A001', 2, 100)
+   - Job 2: ('B002', 1, 50)
+   - Job 3: ('C003', 2, 150)
 
 ### 2.2 Objective Function:
 - **Maximize Total Profit:** Tp maximize the total profit by selecting jobs that can be completed within their deadlines.
