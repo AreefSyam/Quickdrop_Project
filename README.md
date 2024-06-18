@@ -108,8 +108,11 @@ Example:
 
 ## 4.0 Designing an Algorithm
 
+---
+
 ### 4.1 Algorithm Paradigm Explanation
 This paradigm involves making the locally optimal choice at each step with the hope of finding a global optimum.
+
 
 #### 4.1.1 Key Components
 
@@ -124,11 +127,14 @@ This paradigm involves making the locally optimal choice at each step with the h
     - For each job, find the latest available time slot before its deadline.
     - If an available slot is found, schedule the job and update the total profit.
 
+
 #### 4.1.2 Recurrence and Optimization
 - Recurrence: There is no explicit recurrence relation in this greedy approach. *Instead, the algorithm iteratively makes the best local decision (highest profit job that fits) and moves on to the next job.
 - Optimization Function: The optimization function here is the total profit, which is incrementally updated as jobs are scheduled.
 
-### 4.3 Code Breakdown
+---
+
+### 4.2 Code Breakdown
 - Sorting: Arrays.sort(jobs, (a, b) -> b.profit - a.profit);
     - Time Complexity: O(n log n)
 - Scheduling: Iterate through each job and find a free slot from its deadline backward.
@@ -143,8 +149,9 @@ This paradigm involves making the locally optimal choice at each step with the h
           }
 - Time Complexity: 𝑂(𝑛×𝑑), where d is the maximum deadline.
 
-  
-### 4.4 FLowchart
+---
+
+### 4.5 FLowchart
 ![Flowchart](image/flowchart.png)
 
 ---
