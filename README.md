@@ -67,20 +67,20 @@ Jobs: [(A, 2, 100), (B, 1, 19), (C, 2, 27), (D, 1, 25), (E, 3, 15)]
 ### Comparison with Other Algorithms:**
 
 **1. Divide and Conquer (DAC):**
-- Strengths: Efficient for certain types of problems, easy to parallelize.
-- Weaknesses: Not suitable for problems requiring global optimization.
+- Strengths: DAC is highly effective for problems that can be broken down into smaller subproblems, solved independently, and then combined to form the solution for the original problem. Examples include sorting algorithms like QuickSort and MergeSort.
+- Weaknesses: DAC may not be the best choice for problems requiring global optimization, like job scheduling, where the solution to a subproblem depends on the solutions to other subproblems. It can fail to consider dependencies between subproblems, leading to suboptimal solutions.
 
 **2. Dynamic Programming (DP):**
-- Strengths: Provides optimal solutions by considering all possible solutions.
-- Weaknesses: High memory and time complexity.
+- Strengths: DP systematically explores all possible solutions by storing the results of subproblems, ensuring that the optimal solution is found. It is effective for optimization problems where overlapping subproblems and optimal substructure are present.
+- Weaknesses: DP often requires significant memory to store the results of subproblems, which can be problematic for large-scale problems.
 
 **3. Greedy Algorithm:**
-- Strengths: Simple to implement, efficient for many problems, provides good approximate solutions.
-- Weaknesses: May not always provide the optimal solution.
+- Strengths: Greedy algorithms are typically straightforward to design and implement, making them accessible for a wide range of problems.
+- Weaknesses: Greedy algorithms make decisions based on local optimization, which can sometimes lead to suboptimal global solutions. They are not guaranteed to find the best solution for all problems.
 
 **4. Graph Algorithms:**
-- Strengths: Suitable for network flow and connectivity problems.
-- Weaknesses: Complex implementation for job scheduling problems.
+- Strengths: Graph algorithms excel in solving problems related to network flow, shortest paths, and connectivity. They are powerful tools for a wide range of applications, from internet routing to social network analysis.
+- Weaknesses: While graph algorithms can be used for scheduling problems by modeling jobs and dependencies as graphs, the implementation can be complex. It often involves sophisticated data structures and a deep understanding of graph theory.
 
 ---
 
