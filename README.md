@@ -102,8 +102,21 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 
 ---
 
-## 6. Checking the Correctness of an Algorithm
+## 6. Checking the Correctness of an Algorithm (Asymptotic Only, No Recurrence)
+### Greedy Choice Property
+The greedy choice property ensures that making a locally optimal choice (choosing the highest profit job that fits within its deadline) leads to a globally optimal solution.
 
+#### Optimal Substructure
+Optimal substructure means that an optimal solution to the problem contains optimal solutions to its subproblems. For the job scheduling problem, this implies that if we schedule the most profitable jobs first, the remaining jobs will still form an optimal schedule for the remaining slots.
+
+---
+### Steps in the Code:
+![Flowchart](image/ANALYSIS.png)
+![Flowchart](image/ANALYSIS2.png)
+
+### Summary:
+- **Asymptotic Time Complexity:** O(n log n) + O(n.d)
+- **Recurrence Relation:** Since the algorithm is not recursive, we don't have a traditional recurrence relation. Instead, the time complexity is derived from the combination of sorting and scheduling steps.
 
 ---
 
