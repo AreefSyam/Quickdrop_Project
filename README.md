@@ -46,26 +46,26 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 - **No two jobs can be scheduled at the same time slot:** This constraint ensures that the scheduling is non-overlapping, meaning that only one job can be assigned to any given time slot. This prevents conflicts where multiple jobs vie for the same time slot, which would be infeasible in a real-world scenario where only one delivery can occur at a time.
 
 ### 2.4 Other Requirements:
-   - A.Space Constraint: 
+   - Space Constraint: 
    The algorithm should use space proportional to the number of jobs and the maximum deadline. This ensures that the solution is scalable and can handle a large number of jobs efficiently. Specifically, the space complexity should be O(n + d), where (n) is the number of jobs and (d) is the maximum deadline. This involves:
-   - An array to store the jobs.
-   - An additional array to keep track of the scheduled jobs (result array).
+     - An array to store the jobs.
+     - An additional array to keep track of the scheduled jobs (result array).
 
    - Time Constraint: 
    The algorithm should run in polynomial time to ensure it is efficient and practical for real-world applications. The time complexity should ideally be:
    - O(n log n) for sorting the jobs based on profit in descending order.
    - O(n.d) for scheduling the jobs, where (n) is the number of jobs and (d) is the maximum deadline. This includes:
-      - Iterating through the sorted jobs.
-      - Finding the latest available time slot for each job up to its deadline.
+        - Iterating through the sorted jobs.
+        - Finding the latest available time slot for each job up to its deadline.
 
    - Value Constraint:
    The profit values and deadlines should be positive integers to ensure meaningful job scheduling and profit maximization. This includes:
-   - Ensuring all job profits are positive integers, representing the earnings from completing the jobs.
-   - Ensuring all deadlines are positive integers, representing the latest time slot by which the job must be completed.
+     - Ensuring all job profits are positive integers, representing the earnings from completing the jobs.
+     - Ensuring all deadlines are positive integers, representing the latest time slot by which the job must be completed.
 
 ---
 
-## 3. Specification of an Algorithm
+## 3.0 Specification of an Algorithm
 ![Flowchart](image/table.png)
 ### Comparison with Other Algorithms:**
 
@@ -87,7 +87,7 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 
 ---
 
-### 4. Chosen Algorithm: Greedy Algorithm
+### 4.0 Chosen Algorithm: Greedy Algorithm
 
 1. Suitability for Job Scheduling: Greedy algorithms are particularly well-suited for job scheduling problems where jobs need to be selected based on specific criteria (e.g., profit) and fit within given constraints (e.g., deadlines).
 2. Efficiency: The greedy approach allows for quick decision-making, which is crucial for operational efficiency in a real-time environment like drone delivery.
@@ -96,40 +96,40 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 
 ---
 
-## 5. Designing an Algorithm
-### Simple Example 
+## 5.0 Designing an Algorithm
+### 5.1 Simple Example 
 ![Flowchart](image/simple_example.png)
     
-### FLowchart
+### 5.2 FLowchart
 ![Flowchart](image/flowchart.png)
 
 ---
 
-## 6. Checking the Correctness of an Algorithm (Asymptotic Only, No Recurrence)
-### Greedy Choice Property
+## 6.0 Checking the Correctness of an Algorithm (Asymptotic Only, No Recurrence)
+### 6.1 Greedy Choice Property
 The greedy choice property ensures that making a locally optimal choice (choosing the highest profit job that fits within its deadline) leads to a globally optimal solution.
 
-#### Optimal Substructure
+#### 6.2 Optimal Substructure
 Optimal substructure means that an optimal solution to the problem contains optimal solutions to its subproblems. For the job scheduling problem, this implies that if we schedule the most profitable jobs first, the remaining jobs will still form an optimal schedule for the remaining slots.
 
 ---
-### Steps in the Code:
+### 6.3 Steps in the Code:
 ![Flowchart](image/ANALYSIS.png)
 ![Flowchart](image/ANALYSIS2.png)
 
-### Summary:
+### 6.4 Summary:
 - **Asymptotic Time Complexity:** O(n log n) + O(n.d)
 - **Recurrence Relation:** Since the algorithm is not recursive, we don't have a traditional recurrence relation. Instead, the time complexity is derived from the combination of sorting and scheduling steps.
 
 ---
 
-## 7. Analysis of an Algorithm
+## 7.0 Analysis of an Algorithm
 
 
 
 ---
 
-## 8. Implementation of an Algorithm
+## 8.0 Implementation of an Algorithm
 // Job.java
 
     public class Job {
@@ -228,7 +228,7 @@ Optimal substructure means that an optimal solution to the problem contains opti
       }
     }
 
-## 9. Sample Output
+## 9.0 Sample Output
 ![Flowchart](image/sample_output.png)
 
 
