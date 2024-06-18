@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
-//import java.util.Comparator;
 
 public class JobScheduler {
 
@@ -25,6 +24,7 @@ public class JobScheduler {
 
         // Create an array to keep track of free time slots
         Job[] result = new Job[maxDeadline];
+        int[] timeSlots = new int[maxDeadline];
 
         // Keep track of total profit
         int totalProfit = 0;
@@ -36,6 +36,7 @@ public class JobScheduler {
                 // Free slot found
                 if (result[j] == null) {
                     result[j] = jobs[i];
+                    timeSlots[j] = j + 1; // record the slot (1-based index)
                     totalProfit += jobs[i].profit;
                     break;
                 }
@@ -44,9 +45,9 @@ public class JobScheduler {
 
         // Print the scheduled jobs
         System.out.println("Scheduled Jobs:");
-        for (Job job : result) {
-            if (job != null) {
-                System.out.println("Job ID: " + job.jobId + ", Profit: " + job.profit);
+        for (int i = 0; i < maxDeadline; i++) {
+            if (result[i] != null) {
+                System.out.println("Job ID: " + result[i].jobId + ", Profit: " + result[i].profit + ", Scheduled Time Slot: " + timeSlots[i]);
             }
         }
 
@@ -69,7 +70,7 @@ public class JobScheduler {
             e.printStackTrace();
         }
 
-        return jobs;
+        return Arrays.copyOf(jobs, index); // Adjust size of array to actual number of jobs read
     }
 
     public static void main(String[] args) {
