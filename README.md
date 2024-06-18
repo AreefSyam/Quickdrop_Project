@@ -107,7 +107,7 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 ### 6.1 Greedy Choice Property
 The greedy choice property ensures that making a locally optimal choice (choosing the highest profit job that fits within its deadline) leads to a globally optimal solution.
 
-#### 6.2 Optimal Substructure
+### 6.2 Optimal Substructure
 Optimal substructure means that an optimal solution to the problem contains optimal solutions to its subproblems. For the job scheduling problem, this implies that if we schedule the most profitable jobs first, the remaining jobs will still form an optimal schedule for the remaining slots.
 
 ---
