@@ -92,7 +92,7 @@ Example:
 
 ---
 
-### 4.0 Chosen Algorithm: Greedy Algorithm
+### 3.2 Chosen Algorithm: Greedy Algorithm
 
 1. Suitability for Job Scheduling: Greedy algorithms are particularly well-suited for job scheduling problems where jobs need to be selected based on specific criteria (e.g., profit) and fit within given constraints (e.g., deadlines).
 2. Efficiency: The greedy approach allows for quick decision-making, which is crucial for operational efficiency in a real-time environment like drone delivery.
@@ -101,40 +101,40 @@ Example:
 
 ---
 
-## 5.0 Designing an Algorithm
-### 5.1 Simple Example 
+## 4.0 Designing an Algorithm
+### 4.1 Simple Example 
 ![Flowchart](image/simple_example.png)
     
-### 5.2 FLowchart
+### 4.2 FLowchart
 ![Flowchart](image/flowchart.png)
 
 ---
 
-## 6.0 Checking the Correctness of an Algorithm (Asymptotic Only, No Recurrence)
-### 6.1 Greedy Choice Property
+## 5.0 Checking the Correctness of an Algorithm (Asymptotic Only, No Recurrence)
+
+### 5.1 Greedy Choice Property
 The greedy choice property ensures that making a locally optimal choice (choosing the highest profit job that fits within its deadline) leads to a globally optimal solution.
 
-### 6.2 Optimal Substructure
+### 5.2 Optimal Substructure
 Optimal substructure means that an optimal solution to the problem contains optimal solutions to its subproblems. For the job scheduling problem, this implies that if we schedule the most profitable jobs first, the remaining jobs will still form an optimal schedule for the remaining slots.
 
----
-### 6.3 Steps in the Code:
+### 5.3 Steps in the Code:
 ![Flowchart](image/ANALYSIS.png)
 ![Flowchart](image/ANALYSIS2.png)
 
-### 6.4 Summary:
+### 5.4 Summary:
 - **Asymptotic Time Complexity:** O(n log n) + O(n.d)
 - **Recurrence Relation:** Since the algorithm is not recursive, we don't have a traditional recurrence relation. Instead, the time complexity is derived from the combination of sorting and scheduling steps.
 
 ---
 
-## 7.0 Analysis of an Algorithm
+## 6.0 Analysis of an Algorithm
 
 
 
 ---
 
-## 8.0 Implementation of an Algorithm
+## 7.0 Implementation of an Algorithm
 // Job.java
 
     public class Job {
@@ -233,7 +233,7 @@ Optimal substructure means that an optimal solution to the problem contains opti
       }
     }
 
-## 9.0 Sample Output
+## 8.0 Sample Output
 ![Flowchart](image/sample_output.png)
 
 
