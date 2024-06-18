@@ -70,22 +70,23 @@ Example:
 ---
 
 ## 3.0 Specification of an Algorithm
-![Flowchart](image/table.png)
-### Comparison with Other Algorithms:**
 
-**3.1 Divide and Conquer (DAC):**
+### 3.1 Comparison with Other Algorithms:
+![Flowchart](image/table.png)
+
+**3.1.1 Divide and Conquer (DAC):**
 - Strengths: DAC is highly effective for problems that can be broken down into smaller subproblems, solved independently, and then combined to form the solution for the original problem. Examples include sorting algorithms like QuickSort and MergeSort.
 - Weaknesses: DAC may not be the best choice for problems requiring global optimization, like job scheduling, where the solution to a subproblem depends on the solutions to other subproblems. It can fail to consider dependencies between subproblems, leading to suboptimal solutions.
 
-**3.2 Dynamic Programming (DP):**
+**3.1.2 Dynamic Programming (DP):**
 - Strengths: DP systematically explores all possible solutions by storing the results of subproblems, ensuring that the optimal solution is found. It is effective for optimization problems where overlapping subproblems and optimal substructure are present.
 - Weaknesses: DP often requires significant memory to store the results of subproblems, which can be problematic for large-scale problems.
 
-**3.3 Greedy Algorithm:**
+**3.1.3 Greedy Algorithm:**
 - Strengths: Greedy algorithms are typically straightforward to design and implement, making them accessible for a wide range of problems.
 - Weaknesses: Greedy algorithms make decisions based on local optimization, which can sometimes lead to suboptimal global solutions. They are not guaranteed to find the best solution for all problems.
 
-**3.4 Graph Algorithms:**
+**3.1.4 Graph Algorithms:**
 - Strengths: Graph algorithms excel in solving problems related to network flow, shortest paths, and connectivity. They are powerful tools for a wide range of applications, from internet routing to social network analysis.
 - Weaknesses: While graph algorithms can be used for scheduling problems by modeling jobs and dependencies as graphs, the implementation can be complex. It often involves sophisticated data structures and a deep understanding of graph theory.
 
