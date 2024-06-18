@@ -69,6 +69,11 @@ Example:
 
 ---
 
+### 2.5 Simple Example 
+![Flowchart](image/simple_example.png)
+
+---
+
 ## 3.0 Specification of an Algorithm
 
 ### 3.1 Comparison with Other Algorithms:
@@ -102,10 +107,8 @@ Example:
 ---
 
 ## 4.0 Designing an Algorithm
-### 4.1 Simple Example 
-![Flowchart](image/simple_example.png)
     
-### 4.2 FLowchart
+### 4.1 FLowchart
 ![Flowchart](image/flowchart.png)
 
 ---
