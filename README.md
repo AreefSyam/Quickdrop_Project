@@ -117,15 +117,15 @@ This paradigm involves making the locally optimal choice at each step with the h
 #### 4.1.1 Key Components
 
 **1. Sorting Jobs by Profit:**
-- Purpose: To prioritize jobs with the highest profit.
-- Process: Jobs are sorted in descending order based on their profit.
+    - Purpose: To prioritize jobs with the highest profit.
+    - Process: Jobs are sorted in descending order based on their profit.
 
 **2. Iterative Scheduling:**
-- Purpose: To schedule jobs in the available time slots up to their deadlines.
-- Process:
-    - Iterate through the sorted jobs.
-    - For each job, find the latest available time slot before its deadline.
-    - If an available slot is found, schedule the job and update the total profit.
+    - Purpose: To schedule jobs in the available time slots up to their deadlines.
+    - Process:
+        - Iterate through the sorted jobs.
+        - For each job, find the latest available time slot before its deadline.
+        - If an available slot is found, schedule the job and update the total profit.
 
 
 #### 4.1.2 Recurrence and Optimization
@@ -161,7 +161,7 @@ This paradigm involves making the locally optimal choice at each step with the h
 
 ---
 
-### 4.5 FLowchart
+### 4.3 FLowchart
 ![Flowchart](image/flowchart.png)
 
 ---
