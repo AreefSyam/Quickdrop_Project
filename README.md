@@ -4,8 +4,7 @@
 **Course**
 CSC4202 - Design & Analysis Of Algorithm
 
-**Group Name**
-Super Saiyan
+**Group Name:** Super Saiyan
 
 **Team Members & Roles:**
 1. **MUHAMMAD ARIF AIMAN BIN MOHD HISAM** (Leader)
@@ -98,8 +97,6 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 ### Simple Example 
 ![Flowchart](image/simple_example.png)
     
-
-
 ### FLowchart
 ![Flowchart](image/flowchart.png)
 
