@@ -107,8 +107,44 @@ Example:
 ---
 
 ## 4.0 Designing an Algorithm
-    
-### 4.1 FLowchart
+
+### 4.1 Algorithm Paradigm Explanation
+This paradigm involves making the locally optimal choice at each step with the hope of finding a global optimum.
+
+#### 4.1.1 Key Components
+
+**1. Sorting Jobs by Profit:**
+- Purpose: To prioritize jobs with the highest profit.
+- Process: Jobs are sorted in descending order based on their profit.
+
+**2. Iterative Scheduling:**
+- Purpose: To schedule jobs in the available time slots up to their deadlines.
+- Process:
+    - Iterate through the sorted jobs.
+    - For each job, find the latest available time slot before its deadline.
+    - If an available slot is found, schedule the job and update the total profit.
+
+#### 4.1.2 Recurrence and Optimization
+- Recurrence: There is no explicit recurrence relation in this greedy approach. *Instead, the algorithm iteratively makes the best local decision (highest profit job that fits) and moves on to the next job.
+- Optimization Function: The optimization function here is the total profit, which is incrementally updated as jobs are scheduled.
+
+### 4.3 Code Breakdown
+- Sorting: Arrays.sort(jobs, (a, b) -> b.profit - a.profit);
+    - Time Complexity: O(n log n)
+- Scheduling: Iterate through each job and find a free slot from its deadline backward.
+    - For each job:
+ 
+          for (int j = Math.min(maxDeadline - 1, jobs[i].deadline - 1); j >= 0; j--) {
+              if (result[j] == null) {
+                  result[j] = jobs[i];
+                  totalProfit += jobs[i].profit;
+                  break;
+              }
+          }
+- Time Complexity: 𝑂(𝑛×𝑑), where d is the maximum deadline.
+
+  
+### 4.4 FLowchart
 ![Flowchart](image/flowchart.png)
 
 ---
