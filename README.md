@@ -218,10 +218,4 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 ## 9. Sample Output
 ![Flowchart](image/sample_output.png)
 
-Scheduled Jobs:
-Job ID: A, Profit: 100
-Job ID: C, Profit: 27
-Job ID: E, Profit: 15
-Total Profit: 142
-
 
