@@ -204,7 +204,7 @@ Optimal substructure means that an optimal solution to the problem contains opti
         - Scheduling Jobs: Each job is placed in its slot without conflicts. This is still 𝑂(𝑛⋅𝑑) as it needs to check each slot to confirm it's free, even if it's optimal.
 - Thus, the best-case time complexity is: 𝑇(𝑏𝑒𝑠𝑡)(𝑛) = 𝑂(𝑛log⁡𝑛) + 𝑂(𝑛) + 𝑂(𝑛⋅𝑑) = 𝑂(𝑛log𝑛 + 𝑛⋅𝑑)
 
-### 6.1 Average-Case Analysis
+### 6.3 Average-Case Analysis
 
 - The average-case scenario is typically more complex to analyze theoretically because it involves the expected number of operations over all possible inputs
     - However, for this algorithm, it also involves sorting and scheduling which are influenced similarly to the worst and best cases:
@@ -317,4 +317,60 @@ Optimal substructure means that an optimal solution to the problem contains opti
 ## 8.0 Sample Output
 ![Flowchart](image/sample_output.png)
 
+### 8.1 Output Explanation:
+
+
+- **Job ID: E056, Profit: 50, Scheduled Time Slot: 1**
+  - This job with a profit of 50 is scheduled at the earliest available slot, which is slot 1.
+  
+- **Job ID: R090, Profit: 55, Scheduled Time Slot: 2**
+  - This job with a profit of 55 is scheduled in slot 2.
+
+- **Job ID: X056, Profit: 55, Scheduled Time Slot: 3**
+  - This job with a profit of 55 is scheduled in slot 3.
+
+- **Job ID: O060, Profit: 60, Scheduled Time Slot: 4**
+  - This job with a profit of 60 is scheduled in slot 4.
+
+- **Job ID: Y078, Profit: 65, Scheduled Time Slot: 5**
+  - This job with a profit of 65 is scheduled in slot 5.
+
+- **Job ID: X600, Profit: 60, Scheduled Time Slot: 6**
+  - This job with a profit of 60 is scheduled in slot 6.
+
+- **Job ID: T056, Profit: 60, Scheduled Time Slot: 7**
+  - This job with a profit of 60 is scheduled in slot 7.
+
+- **Job ID: B200, Profit: 70, Scheduled Time Slot: 8**
+  - This job with a profit of 70 is scheduled in slot 8.
+
+**Total Profit: 475**
+- The sum of the profits of the scheduled jobs: \(50 + 55 + 55 + 60 + 65 + 60 + 60 + 70 = 475\).
+
+### 8.2 Explanation of Scheduling:
+
+The algorithm follows these steps:
+
+1. **Sort Jobs by Profit in Descending Order:**
+   - Jobs are sorted based on their profit, with the highest profit job considered first. This is why the job with the highest profit (B200, profit 70) is considered before others.
+
+2. **Schedule Jobs:**
+   - The algorithm schedules each job in the latest possible slot before its deadline. It starts from the highest profit job and tries to place it in the nearest available slot to its deadline, moving backward if needed.
+
+For example, let's take a closer look at the first few jobs in the sorted order and how they were scheduled:
+
+- **Job B200** with a profit of 70 is scheduled in slot 8.
+- **Job Y078** with a profit of 65 is scheduled in slot 5.
+- **Job T056** with a profit of 60 is scheduled in slot 7.
+- **Job X600** with a profit of 60 is scheduled in slot 6.
+- **Job O060** with a profit of 60 is scheduled in slot 4.
+- **Job R090** with a profit of 55 is scheduled in slot 2.
+- **Job X056** with a profit of 55 is scheduled in slot 3.
+- **Job E056** with a profit of 50 is scheduled in slot 1.
+
+Each job is placed in the latest available time slot before its deadline to maximize the profit without conflicting with other jobs.
+
+### Summary:
+
+The output shows that the algorithm successfully schedules jobs to maximize the total profit while adhering to their respective deadlines. The total profit of 475 is the sum of the profits of the scheduled jobs, and each job is placed in a time slot that allows it to be completed on time.
 
