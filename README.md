@@ -46,24 +46,26 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 - **Maximize Total Profit:** Tp maximize the total profit by selecting jobs that can be completed within their deadlines.
 
 ### 2.3 Constraints:
-- **Each job must be completed by its deadline:** This constraint ensures that every job scheduled by the algorithm is finished on or before its specified deadline. The deadline represents the latest time by which the job must be completed to earn the associated profit. For example, if a job has a deadline of 2, it means it can only be scheduled in time slots 1 or 2. If the job is scheduled after its deadline, it will not contribute to the total profit, as it is considered late.
-- **No two jobs can be scheduled at the same time slot:** This constraint ensures that the scheduling is non-overlapping, meaning that only one job can be assigned to any given time slot. This prevents conflicts where multiple jobs vie for the same time slot, which would be infeasible in a real-world scenario where only one delivery can occur at a time.
+- **Deadline Constraint**: Each job must be completed by its deadline.
+    - Example: If a job has a deadline of 2, it can only be scheduled in time slots 1 or 2.
+- **Non-Overlapping Constraint**: No two jobs can be scheduled at the same time slot.
+    - Ensures that only one job is assigned per time slot.
 
 ### 2.4 Other Requirements:
-   - **Space Constraint:** The algorithm should use space proportional to the number of jobs and the maximum deadline. This ensures that the solution is scalable and can handle a large number of jobs efficiently. Specifically, the space complexity should be O(n + d), where (n) is the number of jobs and (d) is the maximum deadline. This involves:
-     - An array to store the jobs.
-     - An additional array to keep track of the scheduled jobs (result array).
+   - **Space Constraint:**
+       - Use space proportional to the number of jobs and the maximum deadline O(n + d).
+       - Includes arrays to store jobs and scheduled jobs.
 
-   - **Time Constraint:** The algorithm should run in polynomial time to ensure it is efficient and practical for real-world applications. The time complexity should ideally be:
-     - O(n log n) for sorting the jobs based on profit in descending order.
-     - O(n.d) for scheduling the jobs, where (n) is the number of jobs and (d) is the maximum deadline. This includes:
-          - Iterating through the sorted jobs.
-          - Finding the latest available time slot for each job up to its deadline.
+   - **Time Constraint:**
+       - Sorting: O(n log n) for sorting jobs by profit.
+       - Scheduling: O(n * d) for scheduling jobs up to their deadlines.
 
    - **Value Constraint:**
-   The profit values and deadlines should be positive integers to ensure meaningful job scheduling and profit maximization. This includes:
-     - Ensuring all job profits are positive integers, representing the earnings from completing the jobs.
-     - Ensuring all deadlines are positive integers, representing the latest time slot by which the job must be completed.
+       - Profits and deadlines must be positive integers.
+
+Example:
+- Profit Values: All job profits are positive integers.
+- Deadlines: All deadlines are positive integers.
 
 ---
 
