@@ -190,151 +190,28 @@ Optimal substructure means that an optimal solution to the problem contains opti
 
 - The worst-case scenario occurs when the algorithm has to perform the maximum number of operations.
     - For the job scheduling algorithm, this happens when:
-    - Sorting Jobs by Profit: This is always 𝑂(𝑛 log 𝑛) because sorting needs to be done irrespective of the job deadlines or profits.
-    - Finding the Maximum Deadline: This is 𝑂(𝑛) as it requires scanning through all jobs.
-    - Scheduling Jobs: In the worst case, each job needs to be checked against all deadlines to find an available slot. This involves nested loops where the outer loop runs 𝑛 times (for each job) and the inner loop runs up to 𝑑 times (the maximum deadline).
-- Thus, the worst-case time complexity is: 𝑇(𝑤𝑜𝑟𝑠𝑡)(𝑛) = 𝑂(𝑛log⁡𝑛)+𝑂(𝑛)+𝑂(𝑛⋅𝑑) = 𝑂(𝑛log𝑛 + 𝑛⋅𝑑)
+        - Sorting Jobs by Profit: This is always 𝑂(𝑛 log 𝑛) because sorting needs to be done irrespective of the job deadlines or profits.
+        - Finding the Maximum Deadline: This is 𝑂(𝑛) as it requires scanning through all jobs.
+        - Scheduling Jobs: In the worst case, each job needs to be checked against all deadlines to find an available slot. This involves nested loops where the outer loop runs 𝑛 times (for each job) and the inner loop runs up to 𝑑 times (the maximum deadline).
+- Thus, the worst-case time complexity is: 𝑇(𝑤𝑜𝑟𝑠𝑡)(𝑛) = 𝑂(𝑛log⁡𝑛) + 𝑂(𝑛) + 𝑂(𝑛⋅𝑑) = 𝑂(𝑛log𝑛 + 𝑛⋅𝑑)
 
+### 6.2 Best-Case Analysis
 
-Best-Case Analysis
-The best-case scenario happens when each job can be placed in its slot immediately without needing to check multiple slots. However, since the algorithm always sorts the jobs, the best-case time complexity is still influenced by the sorting step:
+- The best-case scenario happens when each job can be placed in its slot immediately without needing to check multiple slots.
+    - However, since the algorithm always sorts the jobs, the best-case time complexity is still influenced by the sorting step:
+        - Sorting Jobs by Profit: This is 𝑂(𝑛log𝑛)
+        - Finding the Maximum Deadline: This is 𝑂(𝑛).
+        - Scheduling Jobs: Each job is placed in its slot without conflicts. This is still 𝑂(𝑛⋅𝑑) as it needs to check each slot to confirm it's free, even if it's optimal.
+- Thus, the best-case time complexity is: 𝑇(𝑏𝑒𝑠𝑡)(𝑛) = 𝑂(𝑛log⁡𝑛) + 𝑂(𝑛) + 𝑂(𝑛⋅𝑑) = 𝑂(𝑛log𝑛 + 𝑛⋅𝑑)
 
-Sorting Jobs by Profit: This is 
-𝑂
-(
-𝑛
-log
-⁡
-𝑛
-)
-O(nlogn).
-Finding the Maximum Deadline: This is 
-𝑂
-(
-𝑛
-)
-O(n).
-Scheduling Jobs: Each job is placed in its slot without conflicts. This is still 
-𝑂
-(
-𝑛
-⋅
-𝑑
-)
-O(n⋅d) as it needs to check each slot to confirm it's free, even if it's optimal.
-Thus, the best-case time complexity is:
-𝑇
-𝑏
-𝑒
-𝑠
-𝑡
-(
-𝑛
-)
-=
-𝑂
-(
-𝑛
-log
-⁡
-𝑛
-)
-+
-𝑂
-(
-𝑛
-)
-+
-𝑂
-(
-𝑛
-⋅
-𝑑
-)
-=
-𝑂
-(
-𝑛
-log
-⁡
-𝑛
-+
-𝑛
-⋅
-𝑑
-)
-T 
-best
-​
- (n)=O(nlogn)+O(n)+O(n⋅d)=O(nlogn+n⋅d)
+### 6.1 Average-Case Analysis
 
-Average-Case Analysis
-The average-case scenario is typically more complex to analyze theoretically because it involves the expected number of operations over all possible inputs. However, for this algorithm, it also involves sorting and scheduling which are influenced similarly to the worst and best cases:
-
-Sorting Jobs by Profit: This is 
-𝑂
-(
-𝑛
-log
-⁡
-𝑛
-)
-O(nlogn).
-Finding the Maximum Deadline: This is 
-𝑂
-(
-𝑛
-)
-O(n).
-Scheduling Jobs: On average, we still need to check multiple slots for each job, but this number is generally around half the maximum deadline.
-Thus, the average-case time complexity is similar to worst and best cases:
-𝑇
-𝑎
-𝑣
-𝑒
-𝑟
-𝑎
-𝑔
-𝑒
-(
-𝑛
-)
-=
-𝑂
-(
-𝑛
-log
-⁡
-𝑛
-)
-+
-𝑂
-(
-𝑛
-)
-+
-𝑂
-(
-𝑛
-⋅
-𝑑
-)
-=
-𝑂
-(
-𝑛
-log
-⁡
-𝑛
-+
-𝑛
-⋅
-𝑑
-)
-T 
-average
-​
- (n)=O(nlogn)+O(n)+O(n⋅d)=O(nlogn+n⋅d)
+- The average-case scenario is typically more complex to analyze theoretically because it involves the expected number of operations over all possible inputs
+    - However, for this algorithm, it also involves sorting and scheduling which are influenced similarly to the worst and best cases:
+        - Sorting Jobs by Profit: This is 𝑂(𝑛log𝑛)
+        - Finding the Maximum Deadline: This is 𝑂(𝑛).
+        - Scheduling Jobs: On average, we still need to check multiple slots for each job, but this number is generally around half the maximum deadline.
+- Thus, the best-case time complexity is: 𝑇(𝑎𝑣𝑒𝑟𝑎𝑔𝑒)(𝑛) = 𝑂(𝑛log⁡𝑛) + 𝑂(𝑛) + 𝑂(𝑛⋅𝑑) = 𝑂(𝑛log𝑛 + 𝑛⋅𝑑)
 
 ---
 
