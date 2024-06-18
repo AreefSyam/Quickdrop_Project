@@ -132,6 +132,14 @@ This paradigm involves making the locally optimal choice at each step with the h
 - Recurrence: There is no explicit recurrence relation in this greedy approach. *Instead, the algorithm iteratively makes the best local decision (highest profit job that fits) and moves on to the next job.
 - Optimization Function: The optimization function here is the total profit, which is incrementally updated as jobs are scheduled.
 
+        for (int j = Math.min(maxDeadline - 1, jobs[i].deadline - 1); j >= 0; j--) {
+              if (result[j] == null) {
+                  result[j] = jobs[i];
+                  totalProfit += jobs[i].profit; (Optimization Part)
+                  break;
+              }
+         }
+
 ---
 
 ### 4.2 Code Breakdown
