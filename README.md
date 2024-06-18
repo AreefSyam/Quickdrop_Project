@@ -137,6 +137,8 @@ This paradigm involves making the locally optimal choice at each step with the h
 ### 4.2 Code Breakdown
 - Sorting: Arrays.sort(jobs, (a, b) -> b.profit - a.profit);
     - Time Complexity: O(n log n)
+
+      
 - Scheduling: Iterate through each job and find a free slot from its deadline backward.
     - For each job:
  
@@ -147,7 +149,7 @@ This paradigm involves making the locally optimal choice at each step with the h
                   break;
               }
           }
-- Time Complexity: 𝑂(𝑛×𝑑), where d is the maximum deadline.
+    - Time Complexity: 𝑂(𝑛×𝑑), where d is the maximum deadline.
 
 ---
 
