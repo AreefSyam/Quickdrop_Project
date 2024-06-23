@@ -121,23 +121,24 @@ This paradigm involves breaking down the problem into smaller subproblems, solvi
 - Process: Jobs are sorted in ascending order based on their deadlines.
 
 **2. Dynamic Programming Table:**
-- Purpose: To store the maximum profit achievable up to each time slot.
-- Process: Create a DP table where 'dp[i]' represents the maximum profit achievable by scheduling jobs up to time slot 'i'.
+- Purpose: To store the maximum profit achievable up to each job.
+- Process: Create a DP table where 'dp[i]' represents the maximum profit achievable by considering jobs from 0 to i.
 
 **3. State Transition:**
 - Purpose: To update the DP table based on the inclusion or exclusion of each job.
 - Process: For each job, update the DP table by considering whether to include the job or not.
-    - If the job is included, update the profit at the corresponding time slot.
+    - If the job is included, find the last non-conflicting job and add its profit to the current job's profit.
     - If the job is not included, carry forward the previous profit.
       
 
 #### 4.1.2 Recurrence and Optimization
 - Recurrence: The recurrence relation for the DP table is based on whether the job is included or not.
-    - If the job is included: 'dp[i] = max(dp[i], dp[i - job.deadline] + job.profit)'
-    - If the job is not included: 'dp[i] = dp[i]'
+    - If the job is included: 'dp[i] = max(dp[i], job.profit + dp[latestNonConflict(i)])'
+    - If the job is not included: 'dp[i] = dp[i-1]'
 
   
 - Optimization Function: The optimization function here is the maximum profit stored in the DP table, which is updated iteratively.
+
   
 
           for (int i = job.deadline; i >= 1; i--) {
