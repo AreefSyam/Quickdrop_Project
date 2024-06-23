@@ -166,7 +166,7 @@ This paradigm involves making the locally optimal choice at each step with the h
 
 ---
 
-## 5.0 Checking the Correctness of an Algorithm (Asymptotic Only, No Recurrence)
+## 5.0 Checking the Correctness of an Algorithm
 
 ### 5.1 Greedy Choice Property
 The greedy choice property ensures that making a locally optimal choice (choosing the highest profit job that fits within its deadline) leads to a globally optimal solution.
