@@ -155,16 +155,15 @@ This paradigm involves breaking down the problem into smaller subproblems, solvi
 
 ---
 
-## 5.0 Checking the Correctness of an Algorithm (Asymptotic , Recurrence) (modify)
+## 5.0 Checking the Correctness of an Algorithm (Asymptotic , Recurrence) 
 
-### 5.1 Optimal Substructure (modify)
-Optimal substructure means that an optimal solution to the problem contains optimal solutions to its subproblems. For the job scheduling problem, this implies that if we schedule the most profitable jobs first, the remaining jobs will still form an optimal schedule for the remaining slots.
+### 5.1 Optimal Substructure 
+Optimal substructure means that an optimal solution to the problem contains optimal solutions to its subproblems. For the job scheduling problem, this implies that if we schedule the most profitable jobs first, the remaining jobs will still form an optimal schedule for the remaining slots. In this dynamic programming approach, the 'dp' array ensures that we are considering the maximum profit obtainable up to each job, building the solution incrementally and ensuring optimality at each step.
 
-### 5.3 Steps in the Code: (modify)
-![Flowchart](image/ANALYSIS.png)
-![Flowchart](image/ANALYSIS2.png)
+### 5.2 Derive Asymptotic, and Recurrence from the code: 
 
-### 5.4 Summary: (modify)
+
+### 5.3 Summary:
 - **Asymptotic Time Complexity:** O(n log n) + O(n.d)
 - **Recurrence Relation:** Since the algorithm is not recursive, we don't have a traditional recurrence relation. Instead, the time complexity is derived from the combination of sorting and scheduling steps.
 
