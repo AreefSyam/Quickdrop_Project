@@ -180,7 +180,7 @@ Optimal substructure means that an optimal solution to the problem contains opti
 
 ### 5.4 Summary:
 - **Asymptotic Time Complexity:** O(n log n) + O(n.d)
-- **Recurrence Relation:** Since the algorithm is not recursive, we don't have a traditional recurrence relation. Instead, the time complexity is derived from the combination of sorting and scheduling steps.
+- **Recurrence Relation:** T(n,d) = O(n log n) + O(n.d)
 
 ---
 
