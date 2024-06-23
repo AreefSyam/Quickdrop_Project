@@ -1,4 +1,5 @@
 // JobScheduler.java
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,57 +7,47 @@ import java.util.Arrays;
 
 public class JobScheduler {
 
-    // Function to schedule jobs to maximize total profit using a dynamic programming approach
+    // Function to schedule jobs to maximize total profit
     public static void scheduleJobs(Job[] jobs) {
-        // Sort jobs by their deadlines
-        Arrays.sort(jobs, (a, b) -> a.deadline - b.deadline);
+        // Sort jobs by profit in descending order
+        Arrays.sort(jobs, (a, b) -> b.profit - a.profit);
 
         int n = jobs.length;
 
-        // Initialize DP array
-        int[] dp = new int[n];
-        Job[] schedule = new Job[n];
-        boolean[] timeSlots = new boolean[n];
-        Arrays.fill(schedule, null);
-        Arrays.fill(timeSlots, false);
-
-        // Initialize DP array with job profits
-        for (int i = 0; i < n; i++) {
-            dp[i] = jobs[i].profit;
+        // Find the maximum deadline
+        int maxDeadline = 0;
+        for (Job job : jobs) {
+            if (job.deadline > maxDeadline) {
+                maxDeadline = job.deadline;
+            }
         }
 
-        // Fill DP array
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                if (jobs[j].deadline < jobs[i].deadline && dp[i] < dp[j] + jobs[i].profit) {
-                    dp[i] = dp[j] + jobs[i].profit;
+        // Create an array to keep track of free time slots
+        Job[] result = new Job[maxDeadline];
+        int[] timeSlots = new int[maxDeadline];
+
+        // Keep track of total profit
+        int totalProfit = 0;
+
+        // Iterate through all given jobs
+        for (int i = 0; i < n; i++) {
+            // Find a free time slot for this job (start from the last possible slot)
+            for (int j = Math.min(maxDeadline - 1, jobs[i].deadline - 1); j >= 0; j--) {
+                // Free slot found
+                if (result[j] == null) {
+                    result[j] = jobs[i];
+                    timeSlots[j] = j + 1; // record the slot (1-based index)
+                    totalProfit += jobs[i].profit;
+                    break;
                 }
             }
         }
 
-        // Find the maximum profit
-        int maxProfit = dp[0];
-        for (int i = 1; i < n; i++) {
-            if (dp[i] > maxProfit) {
-                maxProfit = dp[i];
-            }
-        }
-
-        // Backtrack to find the jobs included in the optimal schedule
+        // Print the scheduled jobs
         System.out.println("Scheduled Jobs:");
-        int totalProfit = 0;
-        for (int i = n - 1; i >= 0; i--) {
-            if (dp[i] == maxProfit && !timeSlots[jobs[i].deadline - 1]) {
-                schedule[jobs[i].deadline - 1] = jobs[i];
-                totalProfit += jobs[i].profit;
-                maxProfit -= jobs[i].profit;
-                timeSlots[jobs[i].deadline - 1] = true;
-            }
-        }
-
-        for (int i = 0; i < n; i++) {
-            if (schedule[i] != null) {
-                System.out.println("Job ID: " + schedule[i].jobId + ", Profit: " + schedule[i].profit + ", Deadline: " + schedule[i].deadline);
+        for (int i = 0; i < maxDeadline; i++) {
+            if (result[i] != null) {
+                System.out.println("Job ID: " + result[i].jobId + ", Profit: " + result[i].profit + ", Scheduled Time Slot: " + timeSlots[i]);
             }
         }
 
@@ -83,7 +74,7 @@ public class JobScheduler {
     }
 
     public static void main(String[] args) {
-        String filePath = "data/jobs_dataset.csv"; // Update with the actual path to the CSV file
+        String filePath = "data\\jobs_dataset.csv"; // Update with the actual path to the CSV file
         Job[] jobs = readJobsFromCSV(filePath);
         scheduleJobs(jobs);
     }
