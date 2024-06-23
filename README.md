@@ -106,7 +106,7 @@ Example:
 
 ---
 
-## 4.0 Designing an Algorithm ((plz modify if necessary))
+## 4.0 Designing an Algorithm
 
 ---
 
@@ -118,7 +118,7 @@ This paradigm involves breaking down the problem into smaller subproblems, solvi
 
 **1. Sorting Jobs by Deadline:**
 - Purpose: To prioritize jobs with the earliest deadlines.
-- Process: Jobs are sorted in ascending order based on their deadlines.
+- Process: Jobs are sorted in ascending order based on their deadlines using 'Arrays.sort'
 
 **2. Dynamic Programming Table:**
 - Purpose: To store the maximum profit achievable up to each job.
@@ -127,23 +127,26 @@ This paradigm involves breaking down the problem into smaller subproblems, solvi
 **3. State Transition:**
 - Purpose: To update the DP table based on the inclusion or exclusion of each job.
 - Process: For each job, update the DP table by considering whether to include the job or not.
-    - If the job is included, find the last non-conflicting job and add its profit to the current job's profit.
-    - If the job is not included, carry forward the previous profit.
+    - If the job is included, check if adding the job's profit to the previous job's profit gives a higher profit and update the DP table accordingly.
+    - If the job is not included, the DP table carries forward the previous job's profit.
       
 
 #### 4.1.2 Recurrence and Optimization
 - Recurrence: The recurrence relation for the DP table is based on whether the job is included or not.
-    - If the job is included: 'dp[i] = max(dp[i], job.profit + dp[latestNonConflict(i)])'
-    - If the job is not included: 'dp[i] = dp[i-1]'
+    - If the job is included: dp[i] = max(dp[i], dp[j] + job.profit) where j is the index of the last job that does not conflict with job i.
+    - If the job is not included: dp[i] = dp[i - 1]
 
   
 - Optimization Function: The optimization function here is the maximum profit stored in the DP table, which is updated iteratively.
 
   
-
-          for (int i = job.deadline; i >= 1; i--) {
-            dp[i] = Math.max(dp[i], dp[i - 1] + job.profit);
-        }
+          for (int i = 1; i < n; i++) {
+              for (int j = 0; j < i; j++) {
+                  if (jobs[j].deadline < jobs[i].deadline && dp[i] < dp[j] + jobs[i].profit) {
+                      dp[i] = dp[j] + jobs[i].profit;
+                  }
+              }
+          }
 
 ---
 
