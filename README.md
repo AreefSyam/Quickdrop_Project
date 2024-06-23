@@ -13,7 +13,7 @@ CSC4202 - Design & Analysis Of Algorithm
 
 ---
 
-## 1.0 Problem Scenario
+## 1.0 Problem Scenario 
 
 ![Flowchart](image/scenario.png)
 
@@ -31,7 +31,7 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 
 ---
 
-## 2.0 Development of a Model
+## 2.0 Development of a Model 
 ### 2.1 Data Types:
 - Jobs: Represented as an array of Job objects, each containing (jobId, deadline, profit). For example:
     - jobId (String)
@@ -74,7 +74,7 @@ Example:
 
 ---
 
-## 3.0 Specification of an Algorithm
+## 3.0 Specification of an Algorithm 
 
 ### 3.1 Comparison with Other Algorithms:
 ![Flowchart](image/table.png)
@@ -97,66 +97,52 @@ Example:
 
 ---
 
-### 3.2 Chosen Algorithm: Greedy Algorithm
+### 3.2 Chosen Algorithm: Dynamic Algorithm
 
-1. Suitability for Job Scheduling: Greedy algorithms are particularly well-suited for job scheduling problems where jobs need to be selected based on specific criteria (e.g., profit) and fit within given constraints (e.g., deadlines).
-2. Efficiency: The greedy approach allows for quick decision-making, which is crucial for operational efficiency in a real-time environment like drone delivery.
-3. Implementation: The implementation of a greedy algorithm is straightforward, making it easier to develop, test, and maintain compared to more complex algorithms like dynamic programming or graph-based approaches.
-4. Good Approximation: While not always optimal, the greedy algorithm often yields solutions that are very close to the best possible outcome, especially in scenarios where making the locally optimal choice leads to a near-optimal global solution
+1. Suitability for Job Scheduling: Dynamic programming (DP) is particularly well-suited for job scheduling problems where jobs need to be selected based on specific criteria (e.g., profit) and fit within given constraints (e.g., deadlines).
+2. Efficiency: The DP approach allows for systematic exploration of all possible solutions by storing the results of subproblems, ensuring that the optimal solution is found.
+3. Implementation: The implementation of a DP algorithm requires careful definition of the state and transition functions, but it ensures finding the optimal solution.
+4. Global Optimization: DP considers all possible solutions and stores results of subproblems, which helps in finding the globally optimal solution.
 
 ---
 
-## 4.0 Designing an Algorithm
+## 4.0 Designing an Algorithm ((plz modify if necessary))
 
 ---
 
 ### 4.1 Algorithm Paradigm Explanation
-This paradigm involves making the locally optimal choice at each step with the hope of finding a global optimum.
+This paradigm involves breaking down the problem into smaller subproblems, solving each subproblem once, and storing their solutions.
 
 
 #### 4.1.1 Key Components
 
-**1. Sorting Jobs by Profit:**
-- Purpose: To prioritize jobs with the highest profit.
-- Process: Jobs are sorted in descending order based on their profit.
+**1. Sorting Jobs by Deadline:**
+- Purpose: To prioritize jobs with the earliest deadlines.
+- Process: Jobs are sorted in ascending order based on their deadlines.
 
-**2. Iterative Scheduling:**
-- Purpose: To schedule jobs in the available time slots up to their deadlines.
-- Process: Iterate through the sorted jobs.
-    - For each job, find the latest available time slot before its deadline.
-    - If an available slot is found, schedule the job and update the total profit.
+**2. Dynamic Programming Table:**
+- Purpose: To store the maximum profit achievable up to each time slot.
+- Process: Create a DP table where 'dp[i]' represents the maximum profit achievable by scheduling jobs up to time slot 'i'.
 
+**3. State Transition:**
+- Purpose: To update the DP table based on the inclusion or exclusion of each job.
+- Process: For each job, update the DP table by considering whether to include the job or not.
+    - If the job is included, update the profit at the corresponding time slot.
+    - If the job is not included, carry forward the previous profit.
+      
 
 #### 4.1.2 Recurrence and Optimization
-- Recurrence: There is no explicit recurrence relation in this greedy approach. *Instead, the algorithm iteratively makes the best local decision (highest profit job that fits) and moves on to the next job.
-- Optimization Function: The optimization function here is the total profit, which is incrementally updated as jobs are scheduled.
+- Recurrence: The recurrence relation for the DP table is based on whether the job is included or not.
+    - If the job is included: 'dp[i] = max(dp[i], dp[i - job.deadline] + job.profit)'
+    - If the job is not included: 'dp[i] = dp[i]'
 
-        for (int j = Math.min(maxDeadline - 1, jobs[i].deadline - 1); j >= 0; j--) {
-              if (result[j] == null) {
-                  result[j] = jobs[i];
-                  totalProfit += jobs[i].profit; (Optimization Part)
-                  break;
-              }
-         }
+  
+- Optimization Function: The optimization function here is the maximum profit stored in the DP table, which is updated iteratively.
+  
 
----
-
-### 4.2 Code Breakdown
-- Sorting: Arrays.sort(jobs, (a, b) -> b.profit - a.profit);
-    - Time Complexity: O(n log n)
-
-      
-- Scheduling: Iterate through each job and find a free slot from its deadline backward.
-    - For each job:
- 
-          for (int j = Math.min(maxDeadline - 1, jobs[i].deadline - 1); j >= 0; j--) {
-              if (result[j] == null) {
-                  result[j] = jobs[i];
-                  totalProfit += jobs[i].profit;
-                  break;
-              }
-          }
-    - Time Complexity: 𝑂(𝑛×𝑑), where d is the maximum deadline.
+          for (int i = job.deadline; i >= 1; i--) {
+            dp[i] = Math.max(dp[i], dp[i - 1] + job.profit);
+        }
 
 ---
 
@@ -165,27 +151,24 @@ This paradigm involves making the locally optimal choice at each step with the h
 
 ---
 
-## 5.0 Checking the Correctness of an Algorithm (Asymptotic Only, No Recurrence)
+## 5.0 Checking the Correctness of an Algorithm (Asymptotic , Recurrence) (modify)
 
-### 5.1 Greedy Choice Property
-The greedy choice property ensures that making a locally optimal choice (choosing the highest profit job that fits within its deadline) leads to a globally optimal solution.
-
-### 5.2 Optimal Substructure
+### 5.1 Optimal Substructure (modify)
 Optimal substructure means that an optimal solution to the problem contains optimal solutions to its subproblems. For the job scheduling problem, this implies that if we schedule the most profitable jobs first, the remaining jobs will still form an optimal schedule for the remaining slots.
 
-### 5.3 Steps in the Code:
+### 5.3 Steps in the Code: (modify)
 ![Flowchart](image/ANALYSIS.png)
 ![Flowchart](image/ANALYSIS2.png)
 
-### 5.4 Summary:
+### 5.4 Summary: (modify)
 - **Asymptotic Time Complexity:** O(n log n) + O(n.d)
 - **Recurrence Relation:** Since the algorithm is not recursive, we don't have a traditional recurrence relation. Instead, the time complexity is derived from the combination of sorting and scheduling steps.
 
 ---
 
-## 6.0 Analysis of an Algorithm Growth of Function for Worst, Best, Average Analysis
+## 6.0 Analysis of an Algorithm Growth of Function for Worst, Best, Average Analysis (modify)
 
-### 6.1 Worst-Case Analysis
+### 6.1 Worst-Case Analysis (modify)
 
 - The worst-case scenario occurs when the algorithm has to perform the maximum number of operations.
     - For the job scheduling algorithm, this happens when:
@@ -194,7 +177,7 @@ Optimal substructure means that an optimal solution to the problem contains opti
         - Scheduling Jobs: In the worst case, each job needs to be checked against all deadlines to find an available slot. This involves nested loops where the outer loop runs 𝑛 times (for each job) and the inner loop runs up to 𝑑 times (the maximum deadline).
 - Thus, the worst-case time complexity is: 𝑇(𝑤𝑜𝑟𝑠𝑡)(𝑛) = 𝑂(𝑛log⁡𝑛) + 𝑂(𝑛) + 𝑂(𝑛⋅𝑑) = 𝑂(𝑛log𝑛 + 𝑛⋅𝑑)
 
-### 6.2 Best-Case Analysis
+### 6.2 Best-Case Analysis (modify)
 
 - The best-case scenario happens when each job can be placed in its slot immediately without needing to check multiple slots.
     - However, since the algorithm always sorts the jobs, the best-case time complexity is still influenced by the sorting step:
@@ -203,7 +186,7 @@ Optimal substructure means that an optimal solution to the problem contains opti
         - Scheduling Jobs: Each job is placed in its slot without conflicts. This is still 𝑂(𝑛⋅𝑑) as it needs to check each slot to confirm it's free, even if it's optimal.
 - Thus, the best-case time complexity is: 𝑇(𝑏𝑒𝑠𝑡)(𝑛) = 𝑂(𝑛log⁡𝑛) + 𝑂(𝑛) + 𝑂(𝑛⋅𝑑) = 𝑂(𝑛log𝑛 + 𝑛⋅𝑑)
 
-### 6.3 Average-Case Analysis
+### 6.3 Average-Case Analysis (modify)
 
 - The average-case scenario is typically more complex to analyze theoretically because it involves the expected number of operations over all possible inputs
     - However, for this algorithm, it also involves sorting and scheduling which are influenced similarly to the worst and best cases:
@@ -214,7 +197,7 @@ Optimal substructure means that an optimal solution to the problem contains opti
 
 ---
 
-## 7.0 Implementation of an Algorithm
+## 7.0 Implementation of an Algorithm (finalized)
 // Job.java
 
     public class Job {
@@ -222,16 +205,15 @@ Optimal substructure means that an optimal solution to the problem contains opti
       int deadline;
       int profit;
       
-    public Job(String jobId, int deadline, int profit) {
+      public Job(String jobId, int deadline, int profit) {
         this.jobId = jobId;
         this.deadline = deadline;
         this.profit = profit;
+      }
     }
-    }
+
 
 // JobScheduler.java
-
-
 
     import java.io.BufferedReader;
     import java.io.FileReader;
@@ -240,80 +222,101 @@ Optimal substructure means that an optimal solution to the problem contains opti
     
     public class JobScheduler {
     
-      //Function to schedule jobs to maximize total profit
+      // Function to schedule jobs to maximize total profit using dynamic programming
       public static void scheduleJobs(Job[] jobs) {
-          // Sort jobs by profit in descending order
-          Arrays.sort(jobs, (a, b) -> b.profit - a.profit);
-  
-          int n = jobs.length;
-  
-          // Find the maximum deadline
-          int maxDeadline = 0;
-          for (Job job : jobs) {
-              if (job.deadline > maxDeadline) {
-                  maxDeadline = job.deadline;
-              }
+        // Sort jobs by deadline in ascending order
+        Arrays.sort(jobs, (a, b) -> a.deadline - b.deadline);
+    
+        int n = jobs.length;
+    
+        // Find the maximum deadline
+        int maxDeadline = 0;
+        for (Job job : jobs) {
+          if (job.deadline > maxDeadline) {
+            maxDeadline = job.deadline;
           }
-  
-          // Create an array to keep track of free time slots
-          Job[] result = new Job[maxDeadline];
-          int[] timeSlots = new int[maxDeadline];
-  
-          // Keep track of total profit
-          int totalProfit = 0;
-  
-          // Iterate through all given jobs
-          for (int i = 0; i < n; i++) {
-              // Find a free time slot for this job (start from the last possible slot)
-              for (int j = Math.min(maxDeadline - 1, jobs[i].deadline - 1); j >= 0; j--) {
-                  // Free slot found
-                  if (result[j] == null) {
-                      result[j] = jobs[i];
-                      timeSlots[j] = j + 1; // record the slot (1-based index)
-                      totalProfit += jobs[i].profit;
-                      break;
-                  }
-              }
+        }
+    
+        // Create a DP table to store the maximum profit up to each time slot
+        int[] dp = new int[maxDeadline + 1];
+    
+        // Array to keep track of the jobs included in the optimal solution
+        Job[] result = new Job[maxDeadline + 1];
+    
+        // Iterate through all given jobs and update the DP table
+        for (Job job : jobs) {
+          for (int j = maxDeadline; j >= job.deadline; j--) {
+            if (dp[j - job.deadline] + job.profit > dp[j]) {
+              dp[j] = dp[j - job.deadline] + job.profit;
+              result[j] = job;
+            }
           }
-  
-          // Print the scheduled jobs
-          System.out.println("Scheduled Jobs:");
-          for (int i = 0; i < maxDeadline; i++) {
-              if (result[i] != null) {
-                  System.out.println("Job ID: " + result[i].jobId + ", Profit: " + result[i].profit + ", Scheduled Time Slot: " + timeSlots[i]);
-              }
+        }
+    
+        // Print the scheduled jobs and the total profit
+        System.out.println("Scheduled Jobs:");
+        int totalProfit = 0;
+        for (int i = 1; i <= maxDeadline; i++) {
+          if (result[i] != null) {
+            totalProfit += result[i].profit;
+            System.out.println("Job ID: " + result[i].jobId + ", Profit: " + result[i].profit + ", Scheduled Time Slot: " + i);
           }
-  
-          // Print the total profit
-          System.out.println("Total Profit: " + totalProfit);
+        }
+    
+        // Print the total profit
+        System.out.println("Total Profit: " + totalProfit);
       }
-  
+    
       public static Job[] readJobsFromCSV(String filePath) {
-          Job[] jobs = new Job[50];
-          String line;
-          int index = 0;
-  
-          try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-              br.readLine(); // Skip header
-              while ((line = br.readLine()) != null) {
-                  String[] values = line.split(",");
-                  jobs[index++] = new Job(values[0], Integer.parseInt(values[1]), Integer.parseInt(values[2]));
-              }
-          } catch (IOException e) {
-              e.printStackTrace();
+        Job[] jobs = new Job[50];
+        String line;
+        int index = 0;
+    
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+          br.readLine(); // Skip header
+          while ((line = br.readLine()) != null) {
+            String[] values = line.split(",");
+            jobs[index++] = new Job(values[0], Integer.parseInt(values[1]), Integer.parseInt(values[2]));
           }
-  
-          return Arrays.copyOf(jobs, index); // Adjust size of array to actual number of jobs read
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+    
+        return Arrays.copyOf(jobs, index); // Adjust size of array to actual number of jobs read
       }
-  
+    
       public static void main(String[] args) {
-          String filePath = "data\\jobs_dataset.csv"; // Update with the actual path to the CSV file
-          Job[] jobs = readJobsFromCSV(filePath);
-          scheduleJobs(jobs);
+        String filePath = "data\\jobs_dataset.csv"; // Update with the actual path to the CSV file
+        Job[] jobs = readJobsFromCSV(filePath);
+        scheduleJobs(jobs);
       }
     }
 
-## 8.0 Sample Output
+---
+
+### 7.1 Code Breakdown
+- Reading Jobs from CSV: The readJobsFromCSV function reads job data from a CSV file and returns an array of Job objects.
+    - Time Complexity: O(n), where n is the number of jobs.
+- Sorting Jobs by Deadline: The jobs are sorted in ascending order based on their deadlines.
+    - Time Complexity: O(n log n), where n is the number of jobs.
+- Dynamic Programming Table Initialization: An array dp is created to store the maximum profit up to each time slot.
+    - Time Complexity: O(d), where d is the maximum deadline.
+- Scheduling Jobs: Iterate through each job and update the DP table based on job inclusion or exclusion.
+    - For each job:
+
+          for (int j = maxDeadline; j >= job.deadline; j--) {
+                  if (dp[j - job.deadline] + job.profit > dp[j]) {
+                    dp[j] = dp[j - job.deadline] + job.profit;
+                    result[j] = job;
+                  }
+          }
+    - Time Complexity: O(n * d), where n is the number of jobs and d is the maximum deadline.
+- Printing Scheduled Jobs and Total Profit: Iterate through the result array to print the scheduled jobs and calculate the total profit.
+    - Time Complexity: O(d), where d is the maximum deadline.
+
+---
+
+## 8.0 Sample Output (modify)
 ![Flowchart](image/sample_output.png)
 
 ### 8.1 Output Explanation:
@@ -372,7 +375,7 @@ Each job is placed in the latest available time slot before its deadline to maxi
 
 --
 
-### 8.3 Summary:
+### 8.3 Summary: (modify)
 
 The output shows that the algorithm successfully schedules jobs to maximize the total profit while adhering to their respective deadlines. The total profit of 475 is the sum of the profits of the scheduled jobs, and each job is placed in a time slot that allows it to be completed on time.
 
