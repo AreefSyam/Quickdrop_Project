@@ -19,7 +19,7 @@ CSC4202 - Design & Analysis Of Algorithm
 
 In a bustling metropolitan area, a drone delivery service company, "QuickDrop," operates to ensure packages are delivered promptly and efficiently. Each delivery job has a deadline (by when it must be completed) and a profit associated with it. The company aims to maximize its total profit by optimally scheduling deliveries within their respective deadlines.
 
-**Geographical Setting:** The city is divided into several zones, each with varying traffic conditions and distances. The scheduling must account for these factors to ensure timely deliveries. 
+**Geographical Setting:** The city is divided into several zones, each with varying traffic conditions and distances. The scheduling must account for these factors to ensure timely deliveries.
 
 **Type of Disaster:** Not applicable in this scenario.
 
@@ -53,12 +53,12 @@ In a bustling metropolitan area, a drone delivery service company, "QuickDrop," 
 
 ### 2.4 Other Requirements:
    - **Space Constraint:**
-       - Use space proportional to the number of jobs and the maximum deadline O(n + d).
-       - Includes arrays to store jobs and scheduled jobs.
+       - Use space proportional to the number of jobs O(n) and additional space for dynamic programming arrays.
+       - Includes arrays to store jobs and dynamic programming results.
 
    - **Time Constraint:**
        - Sorting: O(n log n) for sorting jobs by profit.
-       - Scheduling: O(n * d) for scheduling jobs up to their deadlines.
+       - Scheduling: O(n^2) for calculating the maximum profit using dynamic programming.
 
    - **Value Constraint:**
        - Profits and deadlines must be positive integers.
