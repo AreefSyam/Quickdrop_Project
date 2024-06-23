@@ -324,6 +324,7 @@ Optimal substructure means that an optimal solution to the problem contains opti
 
 ### 8.1 Output Explanation:
 
+
 - **Job ID: E056, Profit: 50, Scheduled Time Slot: 1**
   - This job with a profit of 50 is scheduled at the earliest available slot, which is slot 1.
   
@@ -351,8 +352,6 @@ Optimal substructure means that an optimal solution to the problem contains opti
 **Total Profit: 475**
 - The sum of the profits of the scheduled jobs: \(50 + 55 + 55 + 60 + 65 + 60 + 60 + 70 = 475\).
 
---
-
 ### 8.2 Explanation of Scheduling:
 
 The algorithm follows these steps:
@@ -376,9 +375,13 @@ For example, let's take a closer look at the first few jobs in the sorted order 
 
 Each job is placed in the latest available time slot before its deadline to maximize the profit without conflicting with other jobs.
 
+<<<<<<< HEAD
 --
 
 ### 8.3 Summary: (modify)
+=======
+### Summary:
+>>>>>>> parent of 60cc890 (Update README.md)
 
 The output shows that the algorithm successfully schedules jobs to maximize the total profit while adhering to their respective deadlines. The total profit of 475 is the sum of the profits of the scheduled jobs, and each job is placed in a time slot that allows it to be completed on time.
 
